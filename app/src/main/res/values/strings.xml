@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DublinBike</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="todo">TODO</string>
+    <string name="enter_city_name">Enter City Name...</string>
+    <string name="name">Name</string>
+</resources>
