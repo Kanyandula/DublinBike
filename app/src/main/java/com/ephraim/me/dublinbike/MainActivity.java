@@ -27,7 +27,7 @@ private  int counter = 6;
         Info = (TextView) findViewById(R.id.etInfo);
 
         Login = (Button)findViewById(R.id.btnLogin);
-       // Info.setText("No of attempts remaining: 5 ");
+
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +41,7 @@ private  int counter = 6;
 
 
     }
-
+    // checking the credentials before granting permission
     private void validate(String userName, String userPassword) {
       if ((userName.equals("Student")) && (userPassword.equals("12345") )) {
 
@@ -49,9 +49,10 @@ private  int counter = 6;
           startActivity(intent);
       }
       else {
+          // subtracting the number of attempts to login
           counter--;
           Info.setText("Try Again");
-
+          //disabling the button login when the attempts are equal to 6
           if(counter == 0){
               Login.setEnabled(false);
           }

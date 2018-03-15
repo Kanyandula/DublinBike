@@ -19,11 +19,11 @@ public class About extends AppCompatActivity {
 
         info =  (Button) findViewById(R.id.etInfo);
         show = (TextView) findViewById(R.id.show);
-
+//button that displays information on a textview
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+//Infomation about the app
                 show.setText("This is a Dublin Bike App. It will help you to find locations where you can get a Dublin city Bike," +
                         "The number of available Bikes and their stand numbe" +
                         "The App also contain Map to help you with directions" +

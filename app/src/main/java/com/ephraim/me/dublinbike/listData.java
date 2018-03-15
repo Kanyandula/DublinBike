@@ -43,7 +43,7 @@ public class listData extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
 
-
+              // trying to catch the jason for Dublin Bike
             try {
                 URL url= new URL("https://api.jcdecaux.com/vls/v1/stations?contract=Dublin&apiKey=711f1aacd608731647100ceddf84c27718c7a92b");
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -56,7 +56,7 @@ public class listData extends AppCompatActivity {
 
                 }
 
-
+               // parsing Jason to get details from jason of dublin bikes
                 JSONArray JA = new JSONArray(data);
                 stations = new String[JA.length()];
                 //position = new Double[JA.length()];
@@ -67,9 +67,7 @@ public class listData extends AppCompatActivity {
                     JSONObject lat= new JSONObject();
                     JSONObject lng= new JSONObject();
 
-                // String lati;
-                  // lat = (JSONObject) JU.getJSONObject("position").get("lat");
-                    //lng = (JSONObject) JU.getJSONObject("position").get("lng");
+
 
 
 
@@ -111,16 +109,16 @@ public class listData extends AppCompatActivity {
 
 
         }
-
+      // creating an adapter to display the data in a listview
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, stations);
             Log.d("Testing",  "sta"+stations.length);
             listView.setAdapter(itemsAdapter);
-            // ArrayAdapter <String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, dataParsed);
 
-            // MainActivity.
+
+
 
         }
     }}

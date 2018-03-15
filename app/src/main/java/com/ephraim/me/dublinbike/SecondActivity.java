@@ -59,10 +59,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SecondActivity.this, About.class));
-                // show.setText("This is a Dublin Bike App. It will help you to find locations where you can get a Dublin city Bike," +
-                //  "The number of available Bikes and their stand numbe" +
-                // "The App also contain Map to help you with directions" +
-                //"This App was designed by Ephraim Kanyandula");
+
 
             }
         });

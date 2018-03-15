@@ -5,12 +5,14 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONArray;
@@ -56,7 +58,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         @Override
         protected Void doInBackground(Void... voids) {
 
-
+// getting Dublin bike Jason from the webside
             try {
                 URL url= new URL("https://api.jcdecaux.com/vls/v1/stations?contract=Dublin&apiKey=711f1aacd608731647100ceddf84c27718c7a92b");
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -94,7 +96,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             try {
-
+//Parsing the jason to get the possition
                 //position = new Double[JA.length()];
                 for (int i=0 ;i <JA.length(); i++){
                     Log.d("check", "printing:2 ");
@@ -112,16 +114,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     Log.d("check", "1 lat: "+JU.get("lng"));
 
-
+                   // converting the sting lattitude and longtude into a double from the possition
                     Double latq = Double.valueOf(JU.get("lat").toString());
                     Double lngq = Double.valueOf(JU.get("lng").toString());
                     LatLng position= new LatLng(latq, lngq);
 
+                    // creating markers on the map
                     mMap.addMarker(new MarkerOptions().position(position).title(JO.get("name").toString()));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 15));
 
 
+
                 }
+
+
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -141,9 +148,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
         mMap = googleMap;
 
+
         new fetchData().execute();
+
+
+
+
 
 //
    //    LatLng parnellSquareNorth = new LatLng(  53.353462,  -6.265305);
