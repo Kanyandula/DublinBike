@@ -27,7 +27,10 @@ import java.net.URL;
 import java.util.Iterator;
 
 
+
 public class WeatherActivity extends AppCompatActivity {
+
+    /* Written by Ephraim Kanyandula (15328) */
 
     EditText cityName;
     TextView textResult;

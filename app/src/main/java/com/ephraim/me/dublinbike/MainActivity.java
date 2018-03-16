@@ -1,5 +1,8 @@
 package com.ephraim.me.dublinbike;
 
+
+
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView Info;
     private Button Login;
 private  int counter = 6;
+
+//This project was done by Ephraim Kanyandula (15328)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
